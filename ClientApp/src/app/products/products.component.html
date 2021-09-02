@@ -1,0 +1,25 @@
+<table class="table table-border table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let prd of products"
+      [class.bg-secondary]="prd.IsActive == false"
+    >
+      <td>{{ prd.id }}</td>
+      <td>{{ prd.name }}</td>
+      <td>{{ prd.price }}</td>
+      <td>
+        <button class="btn btn-primary">edit</button>
+        <button class="btn btn-danger">delete</button>
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
