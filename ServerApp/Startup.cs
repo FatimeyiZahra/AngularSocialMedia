@@ -18,6 +18,7 @@ namespace serverapp
 {
     public class Startup
     {
+         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,9 +30,17 @@ namespace serverapp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SocialContext>(options =>
-                           options.UseSqlServer(Configuration.GetConnectionString("Default"))
-                       );
-            services.AddControllers();
+              options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddCors(options =>
+            {
+               options.AddPolicy(name: MyAllowSpecificOrigins,
+                  builder =>{builder.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyHeader();
+                                   
+            });
+            });
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "serverapp", Version = "v1" });
@@ -51,6 +60,7 @@ namespace serverapp
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 

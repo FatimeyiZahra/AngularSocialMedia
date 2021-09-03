@@ -9,9 +9,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let prd of products"
-      [class.bg-secondary]="prd.IsActive == false"
-    >
+      *ngFor="let prd of products" >
       <td>{{ prd.id }}</td>
       <td>{{ prd.name }}</td>
       <td>{{ prd.price }}</td>
@@ -23,3 +21,6 @@
     </tr>
   </tbody>
 </table>
+<div class="col-md-5">
+  <product-form [products]="products"></product-form>
+  </div>
