@@ -63,3 +63,9 @@ C:\Users\MacBook AIr\Desktop\AngularSocialMedia\ServerApp\bin\Debug\net5.0\Micro
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\ServerApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

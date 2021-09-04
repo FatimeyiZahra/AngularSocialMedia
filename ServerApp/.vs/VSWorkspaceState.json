@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Data"
   ],
-  "SelectedNode": "\\Startup.cs",
+  "SelectedNode": "\\Data\\SocialContext.cs",
   "PreviewInSolutionExplorer": false
 }

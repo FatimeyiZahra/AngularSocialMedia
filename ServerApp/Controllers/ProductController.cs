@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ServerApp.Data;
@@ -10,6 +11,7 @@ using ServerApp.Models;
 namespace ServerApp.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
@@ -23,6 +25,7 @@ namespace ServerApp.Controllers
 
         //localhost:500/api/product
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetProducts()
         {
             var products = await _context.Products.ToListAsync();
@@ -67,7 +70,7 @@ namespace ServerApp.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return NotFound();
             }
