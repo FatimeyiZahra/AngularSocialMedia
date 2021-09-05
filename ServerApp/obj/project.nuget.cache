@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bpVBfleU0wz5eFmroKUh9OOzLEGCco0eOnj3cZ+ZseI2sHNg0CzLmZtNiBwO593hLW07TckytwEtK+Hjk5nzBw==",
+  "dgSpecHash": "3VdIIoyBFS1lm34aPthD8xY3xRWyFKDgtfA35noc/YAD9a+thodISc3V9Ikuxx21GtoE0kM+FKoscxlTfndlzw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\serverapp.csproj",
+  "projectFilePath": "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\serverapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MacBook AIr\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\MacBook AIr\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",

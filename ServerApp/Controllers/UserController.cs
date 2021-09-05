@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace ServerApp.Controllers
 {
     [ApiController]
-    [Authorize]
+    // [Authorize]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
@@ -29,7 +29,7 @@ namespace ServerApp.Controllers
             _signInManager = signInManager;
             _configuration = configuration;
         }
-        //http://localhost:5000/api/user/register
+       
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDTO model)
         {
@@ -39,8 +39,8 @@ namespace ServerApp.Controllers
                 Email = model.Email,
                 Name = model.Name,
                 Gender = model.Gender,
-                Created = DateTime.Now,
-                LastActive = DateTime.Now,
+                Created= DateTime.Now,
+                LastActive=DateTime.Now
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -52,7 +52,6 @@ namespace ServerApp.Controllers
             return BadRequest(result.Errors);
         }
 
-        //http://localhost:5000/api/user/login
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLogin model)
         {
