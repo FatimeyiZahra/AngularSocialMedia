@@ -69,3 +69,6 @@ C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Micro
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\MacBook AIr\Desktop\AngularSocialMedia\ServerApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\Data\users.json
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\MacBook AIr\Desktop\AngularSocialMedia\serverapp\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

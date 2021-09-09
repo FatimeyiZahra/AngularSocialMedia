@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +21,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ServerApp.Data;
 using ServerApp.Models;
+using AutoMapper;
 
 namespace serverapp
 {
@@ -36,7 +40,9 @@ namespace serverapp
         {
             services.AddDbContext<SocialContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("Default")));
+           
             services.AddIdentity<User, Role>().AddEntityFrameworkStores<SocialContext>();
+            services.AddScoped<ISocialRepository, SocialRepository>();
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequiredLength = 8;
@@ -51,7 +57,7 @@ namespace serverapp
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.AllowedForNewUsers = true;
             });
-            
+            services.AddAutoMapper(typeof(Startup));
             
             services.AddCors(options =>
             {
@@ -62,7 +68,9 @@ namespace serverapp
                                    
             });
             });
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson(options => {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "serverapp", Version = "v1" });
@@ -88,13 +96,32 @@ namespace serverapp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "serverapp v1"));
+                SeedDatabase.Seed(userManager).Wait();
+            }
+            else{
+                app.UseExceptionHandler(appError =>
+                {
+                    appError.Run(async context=> {
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        context.Response.ContentType = "application/json";
+
+                        var exception = context.Features.Get<IExceptionHandlerFeature>();
+                        if (exception != null)
+                        {
+                            await context.Response.WriteAsync(new Error() { 
+                                StatusCode=context.Response.StatusCode,
+                                Message= exception.Error.Message
+                            }.ToString());
+                        }
+                    });
+                });
             }
 
             // app.UseHttpsRedirection();

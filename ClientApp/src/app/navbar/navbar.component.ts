@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
       console.log("confirm");
       this.router.navigate(['/members'])
     },error=>{
-    console.log("error");
+    console.log(error);
     })
   }
   loggedIn(){

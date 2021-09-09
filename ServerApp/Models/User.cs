@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 namespace ServerApp.Models
 
@@ -13,5 +14,7 @@ namespace ServerApp.Models
         public string Country { get; set; }
         public string City { get; set; }
         public string Introduction { get; set; }
+
+        public List<Image> Images { get; set; }
     }
 }

@@ -1,0 +1,8 @@
+<div class="d-flex">
+  <div class="card" *ngFor="let item of images" style="width: 18rem">
+    <img class="card-img-top" src="{{ item.name }}" alt="{{ item.desc }}" />
+    <div class="card-body">
+      <p class="card-text">{{ item.desc }}</p>
+    </div>
+  </div>
+</div>

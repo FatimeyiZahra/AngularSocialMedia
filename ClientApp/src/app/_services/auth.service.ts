@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl:string="http://localhost:5000/api/user/";
+  baseUrl:string="http://localhost:5000/api/auth/";
   jwtHelper=new JwtHelperService();
   decodedToken:any;
   constructor(private http: HttpClient) { }
@@ -19,6 +19,7 @@ export class AuthService {
         const result=response;
         if(result){
           localStorage.setItem("token",result.token);
+          this.decodedToken=this.jwtHelper.decodeToken(result.token);
         }
       })
     )

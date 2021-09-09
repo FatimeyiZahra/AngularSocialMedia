@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { JwtModule } from "@auth0/angular-jwt";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,13 @@ import { MessagesComponent } from './messages/messages.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth-guards';
+import { ErrorInterceptor } from './_services/error.interceptor';
+import { MemberDetailsComponent } from './member-details/member-details.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -31,16 +39,29 @@ import { AuthGuard } from './_guards/auth-guards';
     FriendListComponent,
     HomeComponent,
     MessagesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MemberDetailsComponent,
+    PhotoGalleryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5000"],
+        disallowedRoutes: ["localhost:5000/api/auth"],
+      },
+    }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthGuard],
+   providers: [AuthGuard, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

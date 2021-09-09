@@ -4,7 +4,7 @@ namespace ServerApp.DTO
 {
     public class UserForRegisterDTO
     {
-        [Required]
+        [Required(ErrorMessage ="username is required")]
         public string UserName { get; set; }
         [Required]
         public string Email { get; set; }
