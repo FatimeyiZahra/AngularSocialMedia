@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\serverapp.csproj": {}
+    "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\serverapp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\serverapp.csproj": {
+    "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\serverapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\serverapp.csproj",
+        "projectUniqueName": "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\serverapp.csproj",
         "projectName": "serverapp",
-        "projectPath": "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\serverapp.csproj",
+        "projectPath": "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\serverapp.csproj",
         "packagesPath": "C:\\Users\\MacBook AIr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\serverapp\\obj\\",
+        "outputPath": "c:\\Users\\MacBook AIr\\Desktop\\AngularSocialMedia\\ServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MacBook AIr\\AppData\\Roaming\\NuGet\\NuGet.Config",

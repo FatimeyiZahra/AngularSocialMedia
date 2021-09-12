@@ -1,41 +1,133 @@
-<div class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="navbar-brand">SocialApp</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggler">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<header class="header clearfix">
+  <div class="header-inner">
+    <nav
+      class="
+        navbar navbar-expand-lg
+        bg-micko
+        micko-head
+        justify-content-sm-start
+        micko-top
+        pt-0
+        pb-0
+      "
+    >
+      <div class="container">
+        <button class="navbar-toggler align-self-start" type="button">
+          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarToggler" style="
-    justify-content: flex-end;">
+        <form class="search-form-header order-lg-0 order-md-1 order-md-0">
+          <input
+            class="search-form-control"
+            type="search"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+          <button class="search-btn btn-color btn-hover">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <div *ngIf="loggedIn()"
+          class="
+            collapse
+            navbar-collapse
+            bg-micko-nav
+            p-3 p-lg-0
+            mt-6 mt-lg-0
+            d-flex
+            flex-column flex-lg-row flex-xl-row
+            justify-content-lg-end
+            mobileMenu
+          "
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav align-self-stretch">
+            <li class="navbar-nav">
+              <a [routerLink]="['/members']" routerLinkActive="active"  class="nav-link">members</a>
+            </li>
+            <li class="navbar-nav">
+              <a [routerLink]="['/friends']" routerLinkActive="active"  class="nav-link">friends</a>
+            </li>
+            <!-- <li class="navbar-nav">
+              <a [routerLink]="['/messages']" routerLinkActive="active"  class="nav-link">messages</a>
+            </li> -->
+          </ul>
+        </div>
+        <div *ngIf="loggedIn()" class="msg-noti-acnt-section order-2">
+          <ul class="mn-icons-set align-self-stretch">
+            <li class="mn-icon">
+              <a class="mn-link" [routerLink]="['/messages']" routerLinkActive="active" role="button">
+                <i class="fas fa-envelope"></i>
+                <div class="alert-circle"></div>
+              </a>
+            </li>
+            <li class="mn-icon">
+              <a class="mn-link" href="all_notifications.html" role="button">
+                <i class="fas fa-bell"></i>
+                <div class="alert-circle"></div>
+              </a>
+            </li>
+            <li class="mn-icon dropdown dropdown-account">
+              <a
+                href="#"
+                class="opts_account"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <i class="fas fa-caret-down arrow-icon"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end">
+                <li class="media-list">
+                  <div class="media">
+                    <div class="media-left">
+                      <img
+                        class="ft-plus-square icon-bg-circle bg-cyan mr-0"
+                        src="images/left-imgs/img-1.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="media-body">
+                      <h6 class="media-heading text-16">{{authService.decodedToken.unique_name}}</h6>
+                      <p class="email-text font-small-3">
+                        <a
+                          href="https://gambolthemes.net/cdn-cgi/l/email-protection"
+                          class="__cf_email__"
+                          data-cfemail="fd97929a949399988fbd98859c908d9198d39e9290"
+                          >[email&#160;protected]</a
+                        >
+                      </p>
+                      <a
+                        href="my_profile_timeline.html"
+                        class="view-p-link font-small-4"
+                        >View Profile</a
+                      >
+                    </div>
+                  </div>
 
-      <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-        <li class="navbar-nav">
-          <a [routerLink]="['/members']" routerLinkActive="active"  class="nav-link">members</a>
-        </li>
-        <li class="navbar-nav">
-          <a [routerLink]="['/friends']" routerLinkActive="active"  class="nav-link">friends</a>
-        </li>
-        <li class="navbar-nav">
-          <a [routerLink]="['/messages']" routerLinkActive="active"  class="nav-link">messages</a>
-        </li>
-      </ul>
-
-      <ul *ngIf="loggedIn()" class="navbar-nav ml-auto">
-        <li class="navbar-nav">
-          <a href="" class="nav-link">{{authService.decodedToken.unique_name}}</a>
-        </li>
-        <li class="navbar-nav">
-          <a (click)="logout()" class="nav-link">Logout</a>
-        </li>
-      </ul>
-
-      <form *ngIf="!loggedIn()" #form="ngForm" class="form-inline mt-2 mt-md-0 d-flex ml-auto" (ngSubmit)="login()">
-        <input #username="ngModel" class="form-control form-control-sm mr-sm-2" required  type="text" name="username" placeholder="Username" [(ngModel)]="model.username">
-        <input #password="ngModel" class="form-control form-control-sm mr-sm-2" required type="password" name="password" placeholder="Password" [(ngModel)]="model.password">
-        <button class="btn btn-success btn-sm my-2 my-sm-0" type="submit">Login</button>
-      </form>
-
+                  <a
+                    href="my_profile_dashboard.html"
+                    class="item channel_item mt-2"
+                    >Dashboard</a
+                  >
+                </li>
+                <li class="dropdown-menu-footer">
+                  <a
+                    class="dropdown-item-link text-link text-center"
+                    (click)="logout()"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <form *ngIf="!loggedIn()" #form="ngForm" class="form-inline mt-2 mt-md-0 d-flex ml-auto" (ngSubmit)="login()">
+          <input #username="ngModel" class="form-control form-control-sm mr-sm-2" required  type="text" name="username" placeholder="Username" [(ngModel)]="model.username">
+          <input #password="ngModel" class="form-control form-control-sm mr-sm-2" required type="password" name="password" placeholder="Password" [(ngModel)]="model.password">
+          <button class="btn btn-success btn-sm my-2 my-sm-0" type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+    <div class="overlay"></div>
   </div>
-
-  </div>
-</div>
+</header>

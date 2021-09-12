@@ -1,8 +1,217 @@
-<div class="d-flex">
-  <div class="card" *ngFor="let item of images" style="width: 18rem">
-    <img class="card-img-top" src="{{ item.name }}" alt="{{ item.desc }}" />
-    <div class="card-body">
-      <p class="card-text">{{ item.desc }}</p>
+<div class="main_content">
+  <div class="tab-content" id="event-tabContent">
+    <div
+      class="tab-pane fade show active"
+      id="nav-all"
+      role="tabpanel"
+      aria-labelledby="nav-all-tab"
+    >
+      <div class="rcntacttle">
+        <span>Recent Activity</span>
+      </div>
+      <div class="full-width mb-30" *ngFor="let item of images">
+        <div class="recent-items">
+          <div class="posts-list">
+            <div class="feed-shared-author-dt">
+              <div class="author-left">
+                <a href="#" >
+                  <img
+                    class="ft-plus-square job-bg-circle bg-cyan mr-0"
+                    src="{{ item.name }}"
+                    alt="{{item.name}}"/>
+                  </a>
+              </div>
+              <div class="author-dts">
+                <a href="#" class="job-heading">{{item.userName}}</a>
+                <p class="notification-text font-small-4">
+                  <span class="time-dt">{{item.dateAdded}}</span>
+                </p>
+              </div>
+              <div
+                class="
+                  ellipsis-options
+                  post-ellipsis-options
+                  dropdown dropdown-account
+                "
+              >
+                <a
+                  href="#"
+                  class="option-eps"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  ><i class="fas fa-ellipsis-h"></i
+                ></a>
+                <ul
+                  class="
+                    dropdown-menu dropdown-ellipsis dropdown-menu-end
+                  "
+                >
+                  <li class="media-list">
+                    <a href="#" class="item channel_item"
+                      ><i class="fas fa-eye-slash icon-mr1"></i>Hide
+                      this post</a
+                    >
+                    <a href="#" class="item channel_item"
+                      ><i class="far fa-bookmark icon-mr1"></i>Save</a
+                    >
+                    <a href="#" class="item channel_item"
+                      ><i class="fas fa-link icon-mr1"></i>Copy
+                      Link</a
+                    >
+                    <a href="#" class="item channel_item"
+                      ><i class="fas fa-times-circle icon-mr1"></i
+                      >Unfollow John</a
+                    >
+                    <a href="#" class="item channel_item"
+                      ><i class="fas fa-flag icon-mr1"></i>Report this
+                      post</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="post-meta">
+            <div class="feed-shared-dt-1">
+            <p class="mb-0">{{item.desc}}</p>
+            <div class="post-img">
+            <img src="{{item.name}}" alt="">
+            </div>
+            </div>
+            <div class="feed-shared-result">
+            <ul class="social-counts">
+            <li class="social-counts-items">
+            <button class="social-dts-social-counts__count-value">Like<span class="social-counts-reactions-count">240</span></button>
+            </li>
+            <li class="social-counts-items">
+            <button class="social-dts-social-counts__count-value all_comments">Comments<span class="social-counts-reactions-count">10</span></button>
+            </li>
+            <li class="social-counts-items">
+            <button class="social-dts-social-counts__count-value">Share<span class="social-counts-reactions-count">6</span></button>
+            </li>
+            </ul>
+            </div>
+            <div class="feed-shared-social-actions">
+            <div class="reactions-button-left">
+            <button class="react-button__trigger action-btn"><i class="fas fa-thumbs-up icon-mr"></i>Like</button>
+            <button class="react-button__comment action-btn leave_a_comment"><i class="fas fa-comment-alt icon-mr"></i>Comment</button>
+            </div>
+            <div class="reactions-button-right">
+            <button class="react-button__share action-btn"><i class="fas fa-share-alt icon-mr"></i>Share</button>
+            </div>
+            </div>
+            </div>
+          <div class="comment_wrapper main-comment-section">
+            <ul class="we-comment-dt">
+              <li>
+                <div class="comet-avatar">
+                  <img src="images/left-imgs/img-5.jpg" alt="" />
+                </div>
+                <div class="we-comment">
+                  <a href="#" title="" class="user-name"
+                    >Rock William</a
+                  >
+                  <p>This is a beautiful photo.</p>
+                  <div class="inline-itms">
+                    <span>1 hour ago</span>
+                    <a class="we-reply" href="#" title="Reply"
+                      ><i class="fa fa-reply"></i
+                    ></a>
+                    <a href="#" title=""
+                      ><i class="fas fa-thumbs-up"></i
+                      ><span class="social-counts-reactions-count"
+                        >20</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="comet-avatar">
+                  <img src="images/left-imgs/img-10.jpg" alt="" />
+                </div>
+                <div class="we-comment">
+                  <a href="#" title="" class="user-name"
+                    >Amritpal Singh</a
+                  >
+                  <p>Awesome, Congratulations</p>
+                  <div class="inline-itms">
+                    <span>1 hour ago</span>
+                    <a class="we-reply" href="#" title="Reply"
+                      ><i class="fa fa-reply"></i
+                    ></a>
+                    <a href="#" title=""
+                      ><i class="fas fa-thumbs-up"></i
+                      ><span class="social-counts-reactions-count"
+                        >20</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="comet-avatar">
+                  <img src="images/left-imgs/img-11.jpg" alt="" />
+                </div>
+                <div class="we-comment">
+                  <a href="#" title="" class="user-name">Johnson</a>
+                  <p>Nice, Good Luck</p>
+                  <div class="inline-itms">
+                    <span>1 hour ago</span>
+                    <a class="we-reply" href="#" title="Reply"
+                      ><i class="fa fa-reply"></i
+                    ></a>
+                    <a href="#" title=""
+                      ><i class="fas fa-thumbs-up"></i
+                      ><span class="social-counts-reactions-count"
+                        >20</span
+                      ></a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="viewcmnts">
+                  <span class="pointer">View more comments</span>
+                </div>
+              </li>
+              <li>
+                <div class="post-commet-textarea">
+                  <div class="post-base-1 post_comment_combo">
+                    <img src="images/left-imgs/img-3.jpg" alt="" />
+                    <div class="post-base-1">
+                      <textarea
+                        class="auto-resize comment-textarea textarea"
+                        placeholder="Write a comment and press enter"
+                        autocomplete="off"
+                      ></textarea>
+                      <div class="post-base-1 comment_option_footer">
+                        <div class="img-add">
+                          <input type="file" id="file1" />
+                          <label for="file1"
+                            ><i class="fas fa-image"></i
+                          ></label>
+                        </div>
+                        <div class="emoji-panel">
+                          <button class="emoji-combo">
+                            <i class="fas fa-smile"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="loading-btn">
+        <button class="process-btn btn-hover" type="button">
+          More Posts
+        </button>
+      </div>
     </div>
   </div>
 </div>

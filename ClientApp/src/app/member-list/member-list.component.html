@@ -15,10 +15,7 @@
             </a>
 
             <h4 style="height: 20px">{{ user.country }}, {{ user.city }}</h4>
-            <button class="btn btn-outline-primary btn-sm">
-              <i class="fas fa-plus"></i>
-              add friend
-            </button>
+            <button class="act-btn btn-hover" type="button">Add Friend</button>
           </div>
           <a [routerLink]="['/members/', user.id]" class="view-more"
             >View Profile</a

@@ -1,48 +1,319 @@
-<div class="container mt-3">
-  <div class="row">
-      <div class="col-sm-4">
-          <div class="card">
-              <div class="img-container">
-                  <img src="{{ user?.profileImageUrl }}" class="card-img-top img-thumbnail" alt="{{ user?.name }}">
+<div class="wrapper pt-0">
+  <div class="main-background-cover breadcrumb-pt">
+    <div
+      class="banner-user"
+      style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVgerI40W2RVZXYScQJCJTknuOsk7ThJJmWQ&usqp=CAU)"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="banner-item-dts">
+              <div class="banner-content">
+                <div class="banner-media">
+                  <div class="item-profile-img">
+                    <img
+                      src="{{ user?.profileImageUrl }}"
+                      alt="{{ user?.name }}"
+                    />
+                  </div>
+                  <div class="banner-media-body">
+                    <h3 class="item-user-title">{{ user?.name }}</h3>
+                    <div class="item-username">{{ user?.userName }}</div>
+                    <ul class="user-meta-btns">
+                      <li>
+                        <button type="button" class="follow-btn">
+                          <i class="fas fa-plus me-2"></i>Follow
+                        </button>
+                      </li>
+                      <li>
+                        <button type="button" class="pg-message-btn msgngup">
+                          Message
+                        </button>
+                      </li>
+                      <li>
+                        <div class="evnticop dropdown">
+                          <a
+                            href="#"
+                            class="enptdwn epsttdwn"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-h"></i>
+                          </a>
+                          <ul
+                            class="
+                              dropdown-menu
+                              dropdown-event-optn
+                              dropdown-menu-end
+                            "
+                          >
+                            <li class="media-list">
+                              <div class="item channel_item">
+                                <i class="fas fa-ban me-3"></i>Block
+                              </div>
+                              <div class="item channel_item reportbtn">
+                                <i class="fas fa-exclamation-circle me-3"></i
+                                >Report Event
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                  <div>
-                      <strong>Location</strong>
-                      <p>{{ user?.country }}, {{ user?.city }}</p>
-                  </div>
-                  <div>
-                      <strong>Age</strong>
-                      <p>{{ user?.age }}</p>
-                  </div>
-                  <div>
-                      <strong>Last Active</strong>
-                      <p>{{ user?.lastActive }}</p>
-                  </div>
-              </div>
+            </div>
           </div>
+        </div>
       </div>
-      <div class="col-sm-8">
-          <div class="card mb-3">
-              <div class="card-body">
-                  <div class="float-left">
-                        <h3>{{ user?.name }}'s Profile</h3>
-                  </div>
-                  <div class="btn-group float-right" role="group">
-                      <button type="button" class="btn btn-danger">Add Friend</button>
-                      <button type="button" class="btn btn-success">Message</button>
-                  </div>
-              </div>
+    </div>
+  </div>
+  <div class="pages-dt-view">
+    <div class="page-tabs">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="user_profile_timeline.html"
+                  ><i class="fas fa-newspaper me-2"></i>Timeline</a
+                >
+              </li>
+            </ul>
           </div>
-          <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">About Me</h5>
-                <p>
-                    {{ user?.introduction }}
-                </p>
-              </div>
-          </div>
-
-        <photo-gallery [images]="user?.images"></photo-gallery>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="dtpgusr12">
+    <div class="container">
+      <div class="row">
+        <main
+          class="
+            col col-xl-6
+            order-xl-2
+            col-lg-12
+            order-lg-1
+            col-md-12 col-sm-12 col-12
+          "
+        >
+         <photo-gallery [profileImageUrl]="user" [images]="user?.images"></photo-gallery>
+        </main>
+        <aside
+          class="
+            col col-xl-3
+            order-xl-1
+            col-lg-6
+            order-lg-1
+            col-md-6 col-sm-12 col-12
+          "
+        >
+          <div class="event-card mt-30">
+            <div class="headtte14m">
+              <span><i class="fas fa-info"></i></span>
+              <h4>Info</h4>
+            </div>
+            <div class="evntdt99">
+              <div class="mndtlist">
+                <div class="evntflldt4 flxcntr">
+                  <div class="hhttd14s">
+                    <i class="fas fa-venus-mars"></i>
+                  </div>
+                  <div class="ttlpple">
+                    <span>{{user?.gender}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mndtlist">
+                <div class="evntflldt4 flxcntr">
+                  <div class="hhttd14s">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="ttlpple">
+                    <span>{{user?.lastActive}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mndtlist">
+                <div class="evntflldt4 flxcntr">
+                  <div class="hhttd14s">
+                    <i class="fas fa-globe-europe"></i>
+                  </div>
+                  <div class="ttlpple">
+                    <span>{{user?.country}},{{user?.city}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mndtlist">
+                <div class="evntflldt4 flxcntr">
+                  <div class="hhttd14s">
+                    <i class="fas fa-birthday-cake"></i>
+                  </div>
+                  <div class="ttlpple">
+                    <span>{{user?.age}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mndtlist">
+                <div class="mndesp145 page-ddes">
+                  <div class="evarticledes">
+                    <p class="mb-0">
+                      {{user?.introduction}}<br />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event-card mt-30">
+            <div class="social-links-profiles">
+              <ul class="social-share">
+                <li>
+                  <a href="#" class="fb" title="Facebook"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="tw" title="Twitter"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="ln" title="LinkedIn"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="pin" title="Pinterest"
+                    ><i class="fab fa-pinterest-p"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="wp" title="Whatsapp"
+                    ><i class="fab fa-whatsapp"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="tl" title="Telegram"
+                    ><i class="fab fa-telegram-plane"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="in" title="Instagram"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <aside
+          class="
+            col col-xl-3
+            order-xl-3
+            col-lg-6
+            order-lg-3
+            col-md-6 col-sm-12 col-12
+          "
+        >
+          <div class="event-card rrmt-30 lgmt-30">
+            <div class="headtte14m">
+              <span><i class="fas fa-users"></i></span>
+              <a href="user_profile_connections.html">Connections</a>
+              <div class="count-dt">152</div>
+            </div>
+            <div class="panel-photos">
+              <div class="row g-0">
+                <div class="col-lg-4 col-md-3 col-3">
+                  <div class="circled-user-box">
+                    <a href="#">
+                      <img src="images/left-imgs/img-2.jpg" alt="" />
+                      <div class="name-user">Jassica William</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
   </div>
 </div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-items">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="our_blog.html">Blog</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="#">Mobile App</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-items">
+          <h4>My Networks</h4>
+          <ul class="footer-links">
+            <li><a href="my_connections.html">Connections</a></li>
+            <li><a href="my_connections.html">People You Know</a></li>
+            <li><a href="my_pages.html">Pages</a></li>
+            <li><a href="my_groups.html">Groups</a></li>
+            <li><a href="following_hashtags.html">Hashtags</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-items">
+          <h4>Interests</h4>
+          <ul class="footer-links">
+            <li><a href="suggested_pages.html">Companies</a></li>
+            <li><a href="all_jobs.html">Jobs</a></li>
+            <li><a href="all_products.html">Shops</a></li>
+            <li><a href="all_learning.html">Learning</a></li>
+            <li><a href="suggested_hashtags.html">Popular Hashtags</a></li>
+            <li><a href="forums.html">Forums</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="footer-items">
+          <h4>Business Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Become an Micko Author</a></li>
+            <li><a href="#">Become an Instructor</a></li>
+            <li><a href="#">Become an Affiliate</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="help_center.html">Help Center</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-items">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="footer-bottom-links">
+            <ul class="ul-ft-links">
+              <li><a href="terms_of_use.html">Terms of Use</a></li>
+              <li><a href="privacy_policy.html">Privacy Policy</a></li>
+              <li><a href="request_refund_policy.html">Request Refund</a></li>
+              <li><a href="about_us.html">About</a></li>
+              <li><a href="contact_us.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

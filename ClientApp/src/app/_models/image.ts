@@ -4,4 +4,5 @@ export interface image{
   desc:string;
   dateAdded:Date;
   isProfile:boolean;
+  userName:string;
 }
